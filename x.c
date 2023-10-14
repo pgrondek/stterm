@@ -1421,6 +1421,11 @@ chgalpha(const Arg *arg)
       alpha = alpha_def;
    else
       return;
+   
+   if(alpha < 0)
+       alpha = 0;
+   if(alpha > 1)
+       alpha = 1;
 
    dc.col[defaultbg].color.alpha = (unsigned short)(0xFFFF * alpha);
    /* Required to remove artifacting from borderpx */
